@@ -1,0 +1,134 @@
+https://www.java67.com/2016/02/top-20-hibernate-interview-questions.html
+https://www.journaldev.com/3633/hibernate-interview-questions-and-answers#hibernate-session-factory
+https://codingcompiler.com/hibernate-interview-questions-answers/
+https://www.monsterindia.com/career-advice/top-10-tricky-hibernate-interview-questions-that-you-should-know-7860.html
+https://mindmajix.com/hibernate-interview-questions
+https://career.guru99.com/hibernate-interview-questions/
+https://www.bitdegree.org/tutorials/hibernate-interview-questions/#Question_11_What_is_the_Hibernate_configuration_file
+
+
+n+1 select problem
+strategies to solve the N+1 SELECT problem
+
+https://vladmihalcea.com/a-beginners-guide-to-jpa-and-hibernate-cascade-types/
+https://www.journaldev.com/3633/hibernate-interview-questions-and-answers#hibernate-get-vs-load
+https://www.monsterindia.com/career-advice/top-10-tricky-hibernate-interview-questions-that-you-should-know-7860.html
+https://www.dineshonjava.com/difference-between-save-vs-persist-in-hibernate/
+https://www.dineshonjava.com/implement-queue-using-stack/
+https://javarevisited.blogspot.com/2016/01/why-jpa-entity-or-hibernate-persistence-should-not-be-final-in-java.html
+https://www.onlineinterviewquestions.com/hibernate-interview-questions-answers/
+https://javapapers.com/hibernate/hibernate-configuration-and-sessionfactory-instantiation/
+https://www.baeldung.com/hibernate-5-spring
+
+ What is the requirement for a Java object to become a Hibernate entity object?
+It should not be final and must provide a default, no-argument constructor. See the detailed answer to learn more about the special requirement for a Java object to become a Hibernate Entity.
+
+
+1. 	The dialect specifies the type of database used in hibernate so that hibernate generate appropriate type of SQL statements.
+	For connecting any hibernate application with the database, it is required to provide the configuration of SQL dialect.
+	
+2. 	What's the difference between JPA and Hibernate ?
+		JPA is the interface while Hibernate is the implementation.
+		There are multiple popular implementations of JPA.
+		Hibernate
+		MyBatis
+
+3.  @Transient in JPA
+	Java's transient keyword is used to denote that a field is not to be serialized, whereas JPA's @Transient annotation is used to indicate that a field is not to be persisted in the database
+
+4. 	persistance context
+	https://www.javacodegeeks.com/2013/06/jpa-2-entitymanagers-transactions-and-everything-around-it.html
+	
+5. 	isolation level and propogation level
+
+6.	n+1 problem
+
+7.  Hibernate fetching strategy
+	
+
+15. Explain Basic Steps In Writing A Java Program Using Jdbc?
+	JDBC makes the interaction with RDBMS simple and intuitive. When a Java application needs to access database :
+	1. Load the RDBMS specific JDBC driver because this driver actually communicates with the database 
+		(Incase of JDBC 4.0 this is automatically loaded).
+	2. Open the connection to database which is then used to send SQL statements and get results back.
+	3. Create JDBC Statement object. This object contains SQL query.
+	4. Execute statement which returns resultset(s). ResultSet contains the tuples of database table as a result of SQL query.
+	5. Process the result set.
+	6. Close the connection.
+
+16. What Are The Main Components Of Jdbc ?
+	The life cycle of a servlet consists of the following phases:
+	DriverManager: 
+		Manages a list of database drivers.
+		Matches connection requests from the java application with the proper database driver using communication subprotocol.
+		The first driver that recognizes a certain subprotocol under JDBC will be used to establish a database Connection.
+	Driver:
+		The database communications link, handling all communication with the database.
+		Normally, once the driver is loaded, the developer need not call it explicitly.
+	Connection : 
+		Interface with all methods for contacting a database.
+		The connection object represents communication context,ie., all communication with db is through connection object only.
+	Statement : 
+		Encapsulates an SQL statement which is passed to the database to be parsed, compiled, planned and executed.
+	ResultSet: 
+		The ResultSet represents set of rows retrieved due to query execution.
+
+17. What Is Preparedstatement?
+	A prepared statement is an SQL statement that is precompiled by the database. 
+	Through precompilation, prepared statements improve the performance of SQL commands that are executed multiple times 
+	(given that the database supports prepared statements). 
+	Once compiled, prepared statements can be customized prior to each execution by altering predefined SQL parameters.
+
+	PreparedStatement pstmt = conn.prepareStatement("UPDATE EMPLOYEES SET SALARY = ? WHERE ID = ?");
+	pstmt.setBigDecimal(1, 153833.00);
+	pstmt.setInt(2, 110592);
+	Here: conn is an instance of the Connection class and "?" represents parameters.
+	These parameters must be specified before execution.
+
+18. What Are Callable Statements ?
+	Callable statements are used from JDBC application to invoke stored procedures and functions.
+
+Q12. Name Hibernate’s two different types of collections.
+There’s Order Collection and Sorted Collection.
+
+
+Hibernate class & proxy & final
+
+
+
+
+19. The difference between sorted and ordered collection in Hibernate? (detailed answer)
+The main difference between sorted and ordered collection is that sorted collection sort the data in JVM's heap memory using Java's collection framework sorting methods while the ordered collection is sorted using order by clause in the database itself.
+
+A sorted collection is more suited for small dataset but for a large dataset, it's better to use ordered collection to avoid OutOfMemoryError in Java application.
+
+
+20. How do you log SQL queries issued by the Hibernate framework in Java application?
+You can use the show_sql property to log SQL queries issued by the Hibernate framework, Just add the following line in your Hibernate configuration file:
+
+<property name=”show_sql”> true </property>
+
+14. What are other ORM frameworks? Any alternative of Hibernate?
+This is a general question, sometimes asked to start the conversation and other times to finish the interview. EJB and TopLink from Oracle are two of the most popular alternative to Hibernate framework.
+
+
+7. What is the requirement for a Java object to become a Hibernate entity object? (detailed answer)
+It should not be final and must provide a default, no-argument constructor. See the detailed answer to learn more about the special requirement for a Java object to become a Hibernate Entity.
+
+
+4. What is N+1 SELECT problem in Hibernate? (detailed answer)
+The N+1 SELECT problem is a result of lazy loading and load on demand fetching strategy. In this case, Hibernate ends up executing N+1 SQL queries to populate a collection of N elements.
+
+For example, if you have a List of N Items where each Item has a dependency on a collection of Bid object. Now if you want to find the highest bid for each item then Hibernate will fire 1 query to load all items and N subsequent queries to load Bid for each item.
+
+So in order to find the highest bid for each item your application ends up firing N+1 queries.  It's one of the important Hibernate interview questions and I suggest to read chapter 13 of Java Persistence with Hibernate to understand this problem in more details.
+
+
+
+5. What are some strategies to solve the N+1 SELECT problem in Hibernate? (detailed answer)
+This is the follow-up question of previous Hibernate interview question. If you answer the last query correctly then you would be most likely asked this one.
+
+Here are some strategies to solve the N+1 problem:
+1) pre-fetching in batches, this will reduce the N+1 problem to N/K + 1 problem where  K is the size of the batch
+2) subselect fetching strategy
+3) disabling lazy loading
